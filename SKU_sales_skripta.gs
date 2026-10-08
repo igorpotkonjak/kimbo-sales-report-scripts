@@ -2,8 +2,8 @@ function posaljiSalesIzvestajSkuIKupci() {
   var pocetnoVreme = new Date().getTime();
   Logger.log("=== POČETAK IZVRŠAVANJA SKRIPTE ===");
   
-  // Lista glavnih primaoca (To) - ispravljena email adresa
-  var primaociTo = "nikola.rakic@kimbo.rs, zoran.jaric@kimbo.rs, nebojsa.petrovic@kimbo.rs, srecko.tocakovic@kimbo.rs, vukasin.aleksic@kimbo.rs, servis@kimbo.rs, srdjan.mladenovic@kimbo.rs";
+  // Lista glavnih primaoca (To) - izbačen Nebojša Petrović, dodat Nikola Popović
+  var primaociTo = "nikola.rakic@kimbo.rs, zoran.jaric@kimbo.rs, srecko.tocakovic@kimbo.rs, vukasin.aleksic@kimbo.rs, servis@kimbo.rs, srdjan.mladenovic@kimbo.rs, nikola.popovic@kimbo.rs";
   
   // Lista primaoca u kopiji (CC)
   var primaociCc = "veran.adamovic@mojipartneri.rs, djordje.despotovic@mojipartneri.rs, suzana.lazarevic@kimbo.rs, filip.gavrilovic@kimbo.rs, igor.potkonjak@gmail.com, natasa@vinteam.rs";
