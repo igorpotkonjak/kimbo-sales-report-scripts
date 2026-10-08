@@ -2,8 +2,8 @@ function posaljiJutarnjiIzvestajSaExcelPrilogom() {
   var pocetnoVreme = new Date().getTime();
   Logger.log("=== POČETAK IZVRŠAVANJA SKRIPTE ===");
   
-  // Lista glavnih primaoca (To) - dodati servis@kimbo.rs i srdjan.mladenovic@kimbo.rs
-  var primaociTo = "nikola.rakic@kimbo.rs, zoran.jaric@kimbo.rs, nebojsa.petrovic@kimbo.rs, srecko.tocakovic@kimbo.rs, vukasin.aleksic@kimbo.rs, servis@kimbo.rs, srdjan.mladenovic@kimbo.rs";
+  // Lista glavnih primaoca (To) - dodat Nikola Popović, izbačen Nebojša Petrović
+  var primaociTo = "nikola.rakic@kimbo.rs, zoran.jaric@kimbo.rs, srecko.tocakovic@kimbo.rs, vukasin.aleksic@kimbo.rs, servis@kimbo.rs, srdjan.mladenovic@kimbo.rs, nikola.popovic@kimbo.rs";
   
   // Lista primaoca u kopiji (CC)
   var primaociCc = "veran.adamovic@mojipartneri.rs, djordje.despotovic@mojipartneri.rs, suzana.lazarevic@kimbo.rs, filip.gavrilovic@kimbo.rs, igor.potkonjak@gmail.com, natasa@vinteam.rs";
@@ -134,20 +134,20 @@ function posaljiJutarnjiIzvestajSaExcelPrilogom() {
   Logger.log("Generisanje TABELE 2 (Za slanje 2 - A4:AR28) trajalo: " + (prolaznoVreme - poslednjeVreme) + " ms");
   poslednjeVreme = prolaznoVreme;
 
-  // 3. GENERISANJE TABELE 3 ("Za slanje 3" - A4 do AL17, kolone 1-38)
+  // 3. GENERISANJE TABELE 3 ("Za slanje 3" - A4 do AL22, kolone 1-38)
   var sheet3 = ssTabele.getSheetByName("Za slanje 3");
-  var htmlTabela3 = generisiHtmlTabeluBrzo(sheet3, 4, 17, 1, 38);
+  var htmlTabela3 = generisiHtmlTabeluBrzo(sheet3, 4, 22, 1, 38);
   
   prolaznoVreme = new Date().getTime();
-  Logger.log("Generisanje TABELE 3 (Za slanje 3 - A4:AL17) trajalo: " + (prolaznoVreme - poslednjeVreme) + " ms");
+  Logger.log("Generisanje TABELE 3 (Za slanje 3 - A4:AL22) trajalo: " + (prolaznoVreme - poslednjeVreme) + " ms");
   poslednjeVreme = prolaznoVreme;
 
-  // 4. GENERISANJE TABELE 4 ("Za slanje 4" - A4 do AL17, kolone 1-38)
+  // 4. GENERISANJE TABELE 4 ("Za slanje 4" - A4 do AL22, kolone 1-38)
   var sheet4 = ssTabele.getSheetByName("Za slanje 4");
-  var htmlTabela4 = generisiHtmlTabeluBrzo(sheet4, 4, 17, 1, 38);
+  var htmlTabela4 = generisiHtmlTabeluBrzo(sheet4, 4, 22, 1, 38);
   
   prolaznoVreme = new Date().getTime();
-  Logger.log("Generisanje TABELE 4 (Za slanje 4 - A4:AL17) trajalo: " + (prolaznoVreme - poslednjeVreme) + " ms");
+  Logger.log("Generisanje TABELE 4 (Za slanje 4 - A4:AL22) trajalo: " + (prolaznoVreme - poslednjeVreme) + " ms");
   poslednjeVreme = prolaznoVreme;
 
   // 5. SKLAPANJE TELA MEJLA
