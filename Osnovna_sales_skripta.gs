@@ -2,11 +2,39 @@ function posaljiJutarnjiIzvestajSaExcelPrilogom() {
   var pocetnoVreme = new Date().getTime();
   Logger.log("=== POČETAK IZVRŠAVANJA SKRIPTE ===");
   
-  // Lista glavnih primaoca (To) - dodat Nikola Popović, izbačen Nebojša Petrović
-  var primaociTo = "nikola.rakic@kimbo.rs, zoran.jaric@kimbo.rs, srecko.tocakovic@kimbo.rs, vukasin.aleksic@kimbo.rs, servis@kimbo.rs, srdjan.mladenovic@kimbo.rs, nikola.popovic@kimbo.rs";
+  // --- UČITAVANJE PRIMALACA IZ KONFIGURACIONE TABELE ---
+  var configSpreadsheetId = "1olP6X4yXO5Tc2uEy8Jasmo6qZLjQFC9N4edkKi2ATVw";
+  var ssConfig = SpreadsheetApp.openById(configSpreadsheetId);
+  var sheetConfig = ssConfig.getSheets()[0];
+  var zadnjiRed = sheetConfig.getLastRow();
   
-  // Lista primaoca u kopiji (CC)
-  var primaociCc = "veran.adamovic@mojipartneri.rs, djordje.despotovic@mojipartneri.rs, suzana.lazarevic@kimbo.rs, filip.gavrilovic@kimbo.rs, igor.potkonjak@gmail.com, natasa@vinteam.rs";
+  var listaTo = [];
+  var listaCc = [];
+  
+  if (zadnjiRed >= 4) {
+    var brojRedova = zadnjiRed - 3;
+    // Kolona B (To = kolona 2) i Kolona C (Cc = kolona 3)
+    var podaci = sheetConfig.getRange(4, 2, brojRedova, 2).getDisplayValues();
+    
+    for (var i = 0; i < brojRedova; i++) {
+      var emailTo = podaci[i][0] ? podaci[i][0].toString().trim() : "";
+      if (emailTo !== "") {
+        listaTo.push(emailTo);
+      }
+      
+      var emailCc = podaci[i][1] ? podaci[i][1].toString().trim() : "";
+      if (emailCc !== "") {
+        listaCc.push(emailCc);
+      }
+    }
+  }
+  
+  var primaociTo = listaTo.join(", ");
+  var primaociCc = listaCc.join(", ");
+  
+  Logger.log("Učitani primaoci (To): " + primaociTo);
+  Logger.log("Učitani primaoci (CC): " + primaociCc);
+  // ----------------------------------------------------
   
   var naslov = "Sales izvestaj";
   
